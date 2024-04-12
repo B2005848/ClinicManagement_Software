@@ -1,9 +1,8 @@
--- Tạo bảng DrugTypes
+-- Tạo bảng DrugTypes 
 CREATE TABLE DrugTypes (
     drug_type_id NVARCHAR(100) PRIMARY KEY,
     name NVARCHAR(100)
 );
-
 -- Thêm một số loại thuốc phổ biến vào bảng DrugTypes
 INSERT INTO DrugTypes (drug_type_id, name)
 VALUES
