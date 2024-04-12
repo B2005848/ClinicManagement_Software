@@ -1,0 +1,244 @@
+-- Tạo bảng DrugTypes
+CREATE TABLE DrugTypes (
+    drug_type_id NVARCHAR(100) PRIMARY KEY,
+    name NVARCHAR(100)
+);
+
+-- Thêm một số loại thuốc phổ biến vào bảng DrugTypes
+INSERT INTO DrugTypes (drug_type_id, name)
+VALUES
+    ('PAIN', N'Giảm đau'),
+    ('ANTIBIOTIC', N'Kháng sinh'),
+    ('ANTIINFLAMMATORY', N'Chống viêm'),
+    ('ANTIVIRAL', N'Chống cảm cúm'),
+    ('ANTIDIARRHEAL', N'Chống tiêu chảy'),
+    ('TOOTHACHE', N'Tê răng'),
+    ('OTHER', N'Khác');
+
+-- Tạo bảng Patients
+CREATE TABLE Patients (
+    patient_id INT IDENTITY PRIMARY KEY,
+    name NVARCHAR(100),
+    age DATE,
+    gender CHAR(1),
+    address NVARCHAR(255),
+    phone VARCHAR(11),
+    other_details NVARCHAR(255)
+);
+
+-- Tạo bảng Roles
+CREATE TABLE Roles (
+    role_id INT IDENTITY PRIMARY KEY,
+    role_name NVARCHAR(50) UNIQUE
+);
+
+INSERT INTO Roles (role_name)
+VALUES
+    (N'Quản trị viên'),
+    (N'Bác sĩ'),
+    (N'Y tá'),
+    (N'Nhân viên lễ tân'),
+    (N'Nhân viên quầy thuốc');
+
+-- Tạo bảng Employees
+CREATE TABLE Employees (
+    employee_id INT IDENTITY PRIMARY KEY,
+    name NVARCHAR(100),
+    role_id INT,
+    age DATE,
+    phone VARCHAR(11),
+    citizen_id VARCHAR(12) UNIQUE,
+    contact_info NVARCHAR(255),
+    FOREIGN KEY (role_id) REFERENCES Roles(role_id)
+);
+
+-- Tạo bảng Appointments
+CREATE TABLE Appointments (
+    appointment_id INT IDENTITY PRIMARY KEY,
+    patient_id INT,
+    doctor_id INT,
+    appointment_datetime DATETIME,
+    status NVARCHAR(50),
+    FOREIGN KEY (patient_id) REFERENCES Patients(patient_id),
+    FOREIGN KEY (doctor_id) REFERENCES Employees(employee_id)
+);
+
+-- Tạo bảng MedicalRecords
+CREATE TABLE MedicalRecords (
+    record_id INT IDENTITY PRIMARY KEY,
+    patient_id INT,
+    doctor_id INT,
+    diagnosis NVARCHAR(255),
+    treatment NVARCHAR(255),
+    test_results NVARCHAR(MAX),
+    FOREIGN KEY (patient_id) REFERENCES Patients(patient_id),
+    FOREIGN KEY (doctor_id) REFERENCES Employees(employee_id)
+);
+
+-- Tạo bảng Medicines
+CREATE TABLE Medicines (
+    medicine_id INT IDENTITY PRIMARY KEY,
+    name NVARCHAR(100),
+    description NVARCHAR(255),
+    quantity INT,
+    drug_type_id NVARCHAR(100),
+    price_per_unit DECIMAL(10,2),
+    package_quantity INT,
+    FOREIGN KEY (drug_type_id) REFERENCES DrugTypes(drug_type_id)
+);
+
+-- Tạo bảng Prescriptions
+CREATE TABLE Prescriptions (
+    prescription_id INT IDENTITY PRIMARY KEY,
+    patient_id INT,
+    doctor_id INT,
+    medicine_id INT,
+    dosage NVARCHAR(50),
+    frequency NVARCHAR(50),
+    notes NVARCHAR(255),
+    FOREIGN KEY (patient_id) REFERENCES Patients(patient_id),
+    FOREIGN KEY (doctor_id) REFERENCES Employees(employee_id),
+    FOREIGN KEY (medicine_id) REFERENCES Medicines(medicine_id)
+);
+
+-- Tạo bảng Financial
+CREATE TABLE Financial (
+    transaction_id INT IDENTITY PRIMARY KEY,
+    patient_id INT,
+    transaction_type NVARCHAR(50),
+    amount DECIMAL(10,2),
+    transaction_date DATE,
+    FOREIGN KEY (patient_id) REFERENCES Patients(patient_id)
+);
+
+-- Tạo bảng MedicineStock
+CREATE TABLE MedicineStock (
+    stock_id INT IDENTITY PRIMARY KEY,
+    medicine_id INT,
+    lot_number NVARCHAR(50),
+    quantity_in_stock INT,
+    date_received DATE,
+    expiry_date DATE,
+    FOREIGN KEY (medicine_id) REFERENCES Medicines(medicine_id)
+);
+
+-- Tạo bảng PatientGroups
+CREATE TABLE PatientGroups (
+    group_id INT IDENTITY PRIMARY KEY,
+    group_name NVARCHAR(100) UNIQUE
+);
+INSERT INTO PatientGroups (group_name)
+VALUES
+    (N'Bệnh nhân nội trú'),
+    (N'Bệnh nhân ngoại trú'),
+    (N'Bệnh nhân ưu tiên'),
+    (N'Bệnh nhân khám sức khỏe định kỳ');
+
+-- Tạo bảng PatientGroupAssignments
+CREATE TABLE PatientGroupAssignments (
+    assignment_id INT IDENTITY PRIMARY KEY,
+    patient_id INT,
+    group_id INT,
+    FOREIGN KEY (patient_id) REFERENCES Patients(patient_id),
+    FOREIGN KEY (group_id) REFERENCES PatientGroups(group_id)
+);
+
+
+-- Thuốc giảm đau
+INSERT INTO Medicines (name, description, quantity, drug_type_id, price_per_unit, package_quantity)
+VALUES
+    (N'Paracetamol', N'Thuốc giảm đau, hạ sốt', 100, 'PAIN', 5, 10),
+    (N'Ibuprofen', N'Thuốc giảm đau, chống viêm', 80, 'PAIN', 7, 20),
+    (N'Aspirin', N'Thuốc giảm đau, chống viêm', 90, 'PAIN', 6, 15),
+    (N'Acetaminophen', N'Thuốc giảm đau, hạ sốt', 85, 'PAIN', 6, 25),
+    (N'Naproxen', N'Thuốc giảm đau, chống viêm', 75, 'PAIN', 8, 30),
+    (N'Diclofenac', N'Thuốc giảm đau, chống viêm', 70, 'PAIN', 9, 25),
+    (N'Tramadol', N'Thuốc giảm đau', 65, 'PAIN', 10, 20),
+    (N'Codeine', N'Thuốc giảm đau', 60, 'PAIN', 12, 15),
+    (N'Hydrocodone', N'Thuốc giảm đau', 55, 'PAIN', 13, 10),
+    (N'Oxycodone', N'Thuốc giảm đau', 50, 'PAIN', 15, 10);
+
+-- Kháng sinh
+INSERT INTO Medicines (name, description, quantity, drug_type_id, price_per_unit, package_quantity)
+VALUES
+    (N'Amoxicillin', N'Thuốc kháng sinh', 100, 'ANTIBIOTIC', 6, 20),
+    (N'Azithromycin', N'Thuốc kháng sinh', 90, 'ANTIBIOTIC', 7, 15),
+    (N'Ciprofloxacin', N'Thuốc kháng sinh', 80, 'ANTIBIOTIC', 8, 25),
+    (N'Doxycycline', N'Thuốc kháng sinh', 85, 'ANTIBIOTIC', 9, 18),
+    (N'Clarithromycin', N'Thuốc kháng sinh', 95, 'ANTIBIOTIC', 10, 20),
+    (N'Levofloxacin', N'Thuốc kháng sinh', 75, 'ANTIBIOTIC', 11, 22),
+    (N'Metronidazole', N'Thuốc kháng sinh', 65, 'ANTIBIOTIC', 12, 25),
+    (N'Penicillin', N'Thuốc kháng sinh', 70, 'ANTIBIOTIC', 5, 30),
+    (N'Cephalexin', N'Thuốc kháng sinh', 75, 'ANTIBIOTIC', 7, 20),
+    (N'Sulfamethoxazole', N'Thuốc kháng sinh', 80, 'ANTIBIOTIC', 8, 15);
+
+-- Chống viêm
+INSERT INTO Medicines (name, description, quantity, drug_type_id, price_per_unit, package_quantity)
+VALUES
+    (N'Prednisone', N'Thuốc chống viêm', 80, 'ANTIINFLAMMATORY', 7, 20),
+    (N'Hydrocortisone', N'Thuốc chống viêm', 75, 'ANTIINFLAMMATORY', 8, 25),
+    (N'Dexamethasone', N'Thuốc chống viêm', 70, 'ANTIINFLAMMATORY', 9, 30),
+    (N'Methylprednisolone', N'Thuốc chống viêm', 65, 'ANTIINFLAMMATORY', 10, 18),
+    (N'Celecoxib', N'Thuốc chống viêm', 60, 'ANTIINFLAMMATORY', 11, 20),
+    (N'Naproxen', N'Thuốc chống viêm', 55, 'ANTIINFLAMMATORY', 12, 25),
+    (N'Indomethacin', N'Thuốc chống viêm', 75, 'ANTIINFLAMMATORY', 9, 15),
+    (N'Diclofenac', N'Thuốc chống viêm', 70, 'ANTIINFLAMMATORY', 10, 22),
+    (N'Ibuprofen', N'Thuốc chống viêm', 80, 'ANTIINFLAMMATORY', 8, 30),
+    (N'Meloxicam', N'Thuốc chống viêm', 85, 'ANTIINFLAMMATORY', 7, 25);
+
+-- Chống cảm cúm
+INSERT INTO Medicines (name, description, quantity, drug_type_id, price_per_unit, package_quantity)
+VALUES
+    (N'Oseltamivir', N'Thuốc chống cảm cúm', 95, 'ANTIVIRAL', 15, 10),
+    (N'Zanamivir', N'Thuốc chống cảm cúm', 90, 'ANTIVIRAL', 17, 10),
+    (N'Peramivir', N'Thuốc chống cảm cúm', 85, 'ANTIVIRAL', 18, 10),
+    (N'Rimantadine', N'Thuốc chống cảm cúm', 80, 'ANTIVIRAL', 20, 10),
+    (N'Amantadine', N'Thuốc chống cảm cúm', 75, 'ANTIVIRAL', 22, 10),
+    (N'Baloxavir', N'Thuốc chống cảm cúm', 70, 'ANTIVIRAL', 25, 10),
+    (N'Favipiravir', N'Thuốc chống cảm cúm', 65, 'ANTIVIRAL', 30, 10),
+    (N'Arbidol', N'Thuốc chống cảm cúm', 60, 'ANTIVIRAL', 28, 10),
+    (N'Ribavirin', N'Thuốc chống cảm cúm', 55, 'ANTIVIRAL', 35, 10),
+    (N'Interferon', N'Thuốc chống cảm cúm', 50, 'ANTIVIRAL', 40, 10);
+
+-- Chống tiêu chảy
+INSERT INTO Medicines (name, description, quantity, drug_type_id, price_per_unit, package_quantity)
+VALUES
+    (N'Loperamide', N'Thuốc chống tiêu chảy', 80, 'ANTIDIARRHEAL', 7, 20),
+    (N'Diphenoxylate', N'Thuốc chống tiêu chảy', 75, 'ANTIDIARRHEAL', 8, 25),
+    (N'Bismuth subsalicylate', N'Thuốc chống tiêu chảy', 70, 'ANTIDIARRHEAL', 9, 30),
+    (N'Racecadotril', N'Thuốc chống tiêu chảy', 65, 'ANTIDIARRHEAL', 10, 18),
+    (N'Kaopectate', N'Thuốc chống tiêu chảy', 60, 'ANTIDIARRHEAL', 11, 20),
+    (N'Attapulgite', N'Thuốc chống tiêu chảy', 55, 'ANTIDIARRHEAL', 12, 25),
+    (N'Kaolin', N'Thuốc chống tiêu chảy', 50, 'ANTIDIARRHEAL', 10, 22),
+    (N'Activated charcoal', N'Thuốc chống tiêu chảy', 45, 'ANTIDIARRHEAL', 8, 30),
+    (N'Hyoscyamine', N'Thuốc chống tiêu chảy', 40, 'ANTIDIARRHEAL', 7, 25),
+    (N'Lactase', N'Thuốc chống tiêu chảy', 35, 'ANTIDIARRHEAL', 6, 20);
+
+-- Tê răng
+INSERT INTO Medicines (name, description, quantity, drug_type_id, price_per_unit, package_quantity)
+VALUES
+    (N'Orajel', N'Thuốc tê răng', 90, 'TOOTHACHE', 7, 20),
+    (N'Anbesol', N'Thuốc tê răng', 85, 'TOOTHACHE', 8, 25),
+    (N'Clove oil', N'Thuốc tê răng', 80, 'TOOTHACHE', 9, 30),
+    (N'Benzocaine', N'Thuốc tê răng', 75, 'TOOTHACHE', 10, 18),
+    (N'Xylocaine', N'Thuốc tê răng', 70, 'TOOTHACHE', 11, 20),
+    (N'Chloraseptic', N'Thuốc tê răng', 65, 'TOOTHACHE', 12, 25),
+    (N'Tylenol', N'Thuốc tê răng', 60, 'TOOTHACHE', 9, 15),
+    (N'Advil', N'Thuốc tê răng', 55, 'TOOTHACHE', 10, 22),
+    (N'Motrin', N'Thuốc tê răng', 50, 'TOOTHACHE', 8, 30),
+    (N'Nurofen', N'Thuốc tê răng', 45, 'TOOTHACHE', 7, 25);
+
+-- Các loại thuốc khác
+INSERT INTO Medicines (name, description, quantity, drug_type_id, price_per_unit, package_quantity)
+VALUES
+    (N'Vitamin C', N'Bổ sung vitamin C', 100, 'OTHER', 5, 20),
+    (N'Multivitamin', N'Bổ sung multivitamin', 90, 'OTHER', 6, 15),
+    (N'Calcium supplement', N'Bổ sung canxi', 80, 'OTHER', 7, 25),
+    (N'Iron supplement', N'Bổ sung sắt', 85, 'OTHER', 8, 18),
+    (N'Fish oil', N'Bổ sung dầu cá', 95, 'OTHER', 9, 20),
+    (N'Magnesium supplement', N'Bổ sung magiê', 75, 'OTHER', 10, 25),
+    (N'Zinc supplement', N'Bổ sung kẽm', 65, 'OTHER', 11, 15),
+    (N'Probiotic', N'Bổ sung vi sinh vật có lợi', 70, 'OTHER', 12, 22),
+    (N'Melatonin', N'Bổ sung melatonin', 80, 'OTHER', 7, 30),
+    (N'Glucosamine', N'Bổ sung glucosamine', 75, 'OTHER', 8, 25);
+
