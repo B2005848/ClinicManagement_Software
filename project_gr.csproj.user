@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="Control\AdminPage\Children_menu_option\EXAM_CLS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Control\AdminPage\Children_menu_option\EXAM_UNIT_PRE.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Control\AdminPage\Control_EXAMINATION.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Control\AdminPage\Control_HOMEPAGE.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Control\AdminPage\Control_INCOME.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Control\AdminPage\Control_PATIENT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Control\AdminPage\Control_PRESCRIPTION.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Control\AdminPage\Control_REPORT.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Control\AdminPage\Control_SCHEDULE.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Control\AdminPage\Control_SETTING.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Control\AdminPage\Form_Field\Form_Add_Patient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Layout\AdminPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Layout\Login_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
