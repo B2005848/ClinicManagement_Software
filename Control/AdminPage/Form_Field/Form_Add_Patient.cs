@@ -15,6 +15,15 @@ namespace project_gr.Control.AdminPage
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            label15 = new Label();
+            label16 = new Label();
+            Text_citizen = new TextBox();
+            label14 = new Label();
+            label13 = new Label();
+            label12 = new Label();
+            label11 = new Label();
+            label10 = new Label();
+            label6 = new Label();
             btnAdd = new Button();
             textMore = new TextBox();
             label9 = new Label();
@@ -33,12 +42,6 @@ namespace project_gr.Control.AdminPage
             textName = new TextBox();
             btnCancel = new Button();
             label1 = new Label();
-            label6 = new Label();
-            label10 = new Label();
-            label11 = new Label();
-            label12 = new Label();
-            label13 = new Label();
-            label14 = new Label();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -48,6 +51,9 @@ namespace project_gr.Control.AdminPage
             panel1.AutoSize = true;
             panel1.BackColor = SystemColors.Control;
             panel1.BorderStyle = BorderStyle.Fixed3D;
+            panel1.Controls.Add(label15);
+            panel1.Controls.Add(label16);
+            panel1.Controls.Add(Text_citizen);
             panel1.Controls.Add(label14);
             panel1.Controls.Add(label13);
             panel1.Controls.Add(label12);
@@ -73,14 +79,105 @@ namespace project_gr.Control.AdminPage
             panel1.Controls.Add(btnCancel);
             panel1.Location = new Point(56, 52);
             panel1.Name = "panel1";
-            panel1.Size = new Size(603, 766);
+            panel1.Size = new Size(603, 840);
             panel1.TabIndex = 0;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.ForeColor = Color.Red;
+            label15.Location = new Point(46, 113);
+            label15.Name = "label15";
+            label15.Size = new Size(13, 17);
+            label15.TabIndex = 27;
+            label15.Text = "*";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label16.Location = new Point(57, 110);
+            label16.Margin = new Padding(1, 0, 3, 0);
+            label16.Name = "label16";
+            label16.Size = new Size(56, 21);
+            label16.TabIndex = 26;
+            label16.Text = "CCCD:";
+            // 
+            // Text_citizen
+            // 
+            Text_citizen.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Text_citizen.Location = new Point(119, 104);
+            Text_citizen.Margin = new Padding(3, 10, 3, 30);
+            Text_citizen.Name = "Text_citizen";
+            Text_citizen.PlaceholderText = "   Nhập mã căn cước công dân của bệnh nhân";
+            Text_citizen.Size = new Size(408, 27);
+            Text_citizen.TabIndex = 25;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.ForeColor = Color.Red;
+            label14.Location = new Point(30, 375);
+            label14.Name = "label14";
+            label14.Size = new Size(13, 17);
+            label14.TabIndex = 21;
+            label14.Text = "*";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.ForeColor = Color.Red;
+            label13.Location = new Point(27, 323);
+            label13.Name = "label13";
+            label13.Size = new Size(13, 17);
+            label13.TabIndex = 24;
+            label13.Text = "*";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.ForeColor = Color.Red;
+            label12.Location = new Point(237, 255);
+            label12.Name = "label12";
+            label12.Size = new Size(13, 17);
+            label12.TabIndex = 23;
+            label12.Text = "*";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.ForeColor = Color.Red;
+            label11.Location = new Point(16, 256);
+            label11.Name = "label11";
+            label11.Size = new Size(13, 17);
+            label11.TabIndex = 22;
+            label11.Text = "*";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.ForeColor = Color.Red;
+            label10.Location = new Point(9, 187);
+            label10.Name = "label10";
+            label10.Size = new Size(13, 17);
+            label10.TabIndex = 21;
+            label10.Text = "*";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.ForeColor = Color.Red;
+            label6.Location = new Point(9, 47);
+            label6.Name = "label6";
+            label6.Size = new Size(13, 17);
+            label6.TabIndex = 20;
+            label6.Text = "*";
             // 
             // btnAdd
             // 
             btnAdd.BackColor = SystemColors.ActiveCaption;
             btnAdd.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdd.Location = new Point(414, 689);
+            btnAdd.Location = new Point(414, 764);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(113, 40);
             btnAdd.TabIndex = 18;
@@ -92,7 +189,7 @@ namespace project_gr.Control.AdminPage
             // 
             textMore.BorderStyle = BorderStyle.FixedSingle;
             textMore.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textMore.Location = new Point(119, 461);
+            textMore.Location = new Point(119, 536);
             textMore.Margin = new Padding(3, 10, 3, 30);
             textMore.Multiline = true;
             textMore.Name = "textMore";
@@ -104,7 +201,7 @@ namespace project_gr.Control.AdminPage
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(29, 461);
+            label9.Location = new Point(29, 536);
             label9.Name = "label9";
             label9.Size = new Size(84, 21);
             label9.TabIndex = 16;
@@ -115,7 +212,7 @@ namespace project_gr.Control.AdminPage
             panelGroupPatients.AutoScroll = true;
             panelGroupPatients.BorderStyle = BorderStyle.Fixed3D;
             panelGroupPatients.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            panelGroupPatients.Location = new Point(119, 299);
+            panelGroupPatients.Location = new Point(119, 374);
             panelGroupPatients.Margin = new Padding(3, 3, 3, 30);
             panelGroupPatients.Name = "panelGroupPatients";
             panelGroupPatients.Size = new Size(408, 122);
@@ -125,7 +222,7 @@ namespace project_gr.Control.AdminPage
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(51, 299);
+            label8.Location = new Point(51, 374);
             label8.Name = "label8";
             label8.Size = new Size(62, 21);
             label8.TabIndex = 14;
@@ -134,7 +231,7 @@ namespace project_gr.Control.AdminPage
             // textAddress
             // 
             textAddress.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textAddress.Location = new Point(119, 239);
+            textAddress.Location = new Point(119, 314);
             textAddress.Margin = new Padding(3, 10, 3, 30);
             textAddress.Name = "textAddress";
             textAddress.PlaceholderText = "   Nhập địa chỉ liên hệ";
@@ -145,7 +242,7 @@ namespace project_gr.Control.AdminPage
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(46, 245);
+            label7.Location = new Point(46, 320);
             label7.Name = "label7";
             label7.Size = new Size(67, 21);
             label7.TabIndex = 12;
@@ -154,7 +251,7 @@ namespace project_gr.Control.AdminPage
             // textNumberPhone
             // 
             textNumberPhone.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            textNumberPhone.Location = new Point(356, 172);
+            textNumberPhone.Location = new Point(356, 247);
             textNumberPhone.Margin = new Padding(3, 10, 3, 30);
             textNumberPhone.Name = "textNumberPhone";
             textNumberPhone.PlaceholderText = "   Nhập số điện thoại";
@@ -165,7 +262,7 @@ namespace project_gr.Control.AdminPage
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(256, 177);
+            label5.Location = new Point(256, 252);
             label5.Name = "label5";
             label5.Size = new Size(94, 21);
             label5.TabIndex = 8;
@@ -175,7 +272,7 @@ namespace project_gr.Control.AdminPage
             // 
             radiobtnFemale.AutoSize = true;
             radiobtnFemale.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            radiobtnFemale.Location = new Point(179, 178);
+            radiobtnFemale.Location = new Point(179, 253);
             radiobtnFemale.Margin = new Padding(3, 10, 3, 30);
             radiobtnFemale.Name = "radiobtnFemale";
             radiobtnFemale.Size = new Size(47, 24);
@@ -188,7 +285,7 @@ namespace project_gr.Control.AdminPage
             // 
             radiobtnMale.AutoSize = true;
             radiobtnMale.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            radiobtnMale.Location = new Point(119, 178);
+            radiobtnMale.Location = new Point(119, 253);
             radiobtnMale.Margin = new Padding(3, 10, 3, 30);
             radiobtnMale.Name = "radiobtnMale";
             radiobtnMale.Size = new Size(59, 24);
@@ -201,7 +298,7 @@ namespace project_gr.Control.AdminPage
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(33, 178);
+            label4.Location = new Point(33, 253);
             label4.Margin = new Padding(1, 0, 3, 0);
             label4.Name = "label4";
             label4.Size = new Size(80, 21);
@@ -212,7 +309,7 @@ namespace project_gr.Control.AdminPage
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(22, 108);
+            label3.Location = new Point(22, 183);
             label3.Margin = new Padding(1, 0, 3, 0);
             label3.Name = "label3";
             label3.Size = new Size(91, 21);
@@ -234,7 +331,7 @@ namespace project_gr.Control.AdminPage
             // 
             textDatePatient.CustomFormat = "dd/MM/yyyy";
             textDatePatient.Format = DateTimePickerFormat.Custom;
-            textDatePatient.Location = new Point(119, 104);
+            textDatePatient.Location = new Point(119, 179);
             textDatePatient.Margin = new Padding(3, 10, 3, 30);
             textDatePatient.Name = "textDatePatient";
             textDatePatient.Size = new Size(408, 25);
@@ -253,12 +350,13 @@ namespace project_gr.Control.AdminPage
             // btnCancel
             // 
             btnCancel.BackColor = SystemColors.AppWorkspace;
-            btnCancel.Location = new Point(110, 689);
+            btnCancel.Location = new Point(110, 764);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(113, 40);
             btnCancel.TabIndex = 19;
             btnCancel.Text = "HỦY BỎ";
             btnCancel.UseVisualStyleBackColor = false;
+            btnCancel.Click += btnCancel_Click;
             // 
             // label1
             // 
@@ -272,71 +370,11 @@ namespace project_gr.Control.AdminPage
             label1.TabIndex = 0;
             label1.Text = "THÔNG TIN";
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.ForeColor = Color.Red;
-            label6.Location = new Point(9, 47);
-            label6.Name = "label6";
-            label6.Size = new Size(13, 17);
-            label6.TabIndex = 20;
-            label6.Text = "*";
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.ForeColor = Color.Red;
-            label10.Location = new Point(9, 112);
-            label10.Name = "label10";
-            label10.Size = new Size(13, 17);
-            label10.TabIndex = 21;
-            label10.Text = "*";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.ForeColor = Color.Red;
-            label11.Location = new Point(16, 181);
-            label11.Name = "label11";
-            label11.Size = new Size(13, 17);
-            label11.TabIndex = 22;
-            label11.Text = "*";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.ForeColor = Color.Red;
-            label12.Location = new Point(237, 180);
-            label12.Name = "label12";
-            label12.Size = new Size(13, 17);
-            label12.TabIndex = 23;
-            label12.Text = "*";
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.ForeColor = Color.Red;
-            label13.Location = new Point(27, 248);
-            label13.Name = "label13";
-            label13.Size = new Size(13, 17);
-            label13.TabIndex = 24;
-            label13.Text = "*";
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.ForeColor = Color.Red;
-            label14.Location = new Point(30, 300);
-            label14.Name = "label14";
-            label14.Size = new Size(13, 17);
-            label14.TabIndex = 21;
-            label14.Text = "*";
-            // 
             // Form_Add_Patient
             // 
             AcceptButton = btnAdd;
             BackColor = SystemColors.ControlLight;
-            ClientSize = new Size(731, 876);
+            ClientSize = new Size(731, 931);
             Controls.Add(label1);
             Controls.Add(panel1);
             Name = "Form_Add_Patient";
@@ -366,6 +404,15 @@ namespace project_gr.Control.AdminPage
         private TextBox? textMore;
         private Button? btnAdd;
         private Button? btnCancel;
+        private Label label11;
+        private Label label10;
+        private Label label6;
+        private Label label12;
+        private Label label13;
+        private Label label14;
+        private Label label15;
+        private Label label16;
+        private TextBox Text_citizen;
 
         private void Form_Add_Patient_Load(object? sender, EventArgs e)
         {
@@ -395,6 +442,7 @@ namespace project_gr.Control.AdminPage
         private void btnAdd_Click(object sender, EventArgs e)
         {
             string name = textName.Text;
+            string citizen_id = Text_citizen.Text;
             DateTime age = textDatePatient.Value;
             char gender = radiobtnMale.Checked ? '1' : '0';
             string address = textAddress.Text;
@@ -406,6 +454,13 @@ namespace project_gr.Control.AdminPage
                 MessageBox.Show("Vui lòng nhập tên bệnh nhân.");
                 return;
             }
+
+            if (string.IsNullOrWhiteSpace(citizen_id))
+            {
+                MessageBox.Show("Căn cước công dân không được trống!");
+                return;
+            }
+
 
             if (age < DateTime.MinValue || age > DateTime.Now)
             {
@@ -425,7 +480,7 @@ namespace project_gr.Control.AdminPage
                 return;
             }
 
-            if (phone.Length != 11 || !phone.All(char.IsDigit))
+            if (phone.Length > 11 || phone.Length < 9 || !phone.All(char.IsDigit))
             {
                 MessageBox.Show("Vui lòng nhập số điện thoại hợp lệ.");
                 return;
@@ -459,7 +514,7 @@ namespace project_gr.Control.AdminPage
                 return;
             }
 
-            bool success = DatabaseManager.AddNewPatientAndAssignGroups(name, age, gender, address, phone, otherDetails, groupIds);
+            bool success = DatabaseManager.AddNewPatientAndAssignGroups(name, citizen_id, age, gender, address, phone, otherDetails, groupIds);
 
             if (success)
             {
@@ -467,15 +522,15 @@ namespace project_gr.Control.AdminPage
             }
             else
             {
-                MessageBox.Show("Xảy ra lỗi");
+                MessageBox.Show("Bệnh nhân đã tồn tại");
             }
         }
 
-        private Label label11;
-        private Label label10;
-        private Label label6;
-        private Label label12;
-        private Label label13;
-        private Label label14;
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Control_PATIENT control_PATIENT = new();
+            control_PATIENT.Show();
+            this.Close();
+        }
     }
 }

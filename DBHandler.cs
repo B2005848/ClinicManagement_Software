@@ -79,6 +79,7 @@ namespace project_gr
           SELECT 
                 ROW_NUMBER() OVER (ORDER BY patient_id) AS No, 
                 patient_id,
+                citizen_id,
                 name,
                 age,
                     CASE 
@@ -86,9 +87,7 @@ namespace project_gr
                     WHEN gender = 1 THEN N'Nam'
                 END AS gender_text,
                 address,
-               
-                phone,
-                other_details
+                phone
             FROM 
                 patients";
                 using SqlCommand command = new(query, conn);
@@ -104,6 +103,112 @@ namespace project_gr
                 return null;
             }
         }
+
+
+        //Get info patient by patient_id
+        public static DataSet GetPatientDetails(int patientId)
+        {
+            try
+            {
+                if (conn == null || conn.State != ConnectionState.Open)
+                {
+                    Console.WriteLine("Connection is not open");
+                    return null;
+                }
+
+                DataSet dataSet = new();
+
+                //Query for info patient
+                string queryPersonalInfo = @"
+            SELECT 
+                P.patient_id,
+                P.citizen_id,
+                P.name,
+                P.age,
+                CASE 
+                    WHEN P.gender = 0 THEN N'Nữ'
+                    WHEN P.gender = 1 THEN N'Nam'
+                END AS gender_text,
+                P.address,
+                P.phone
+            FROM 
+                Patients AS P
+            WHERE
+                P.patient_id = @patientId";
+
+                using (SqlCommand commandPersonalInfo = new (queryPersonalInfo, conn))
+                {
+                    commandPersonalInfo.Parameters.AddWithValue("@patientId", patientId);
+                    SqlDataAdapter adapterPersonalInfo = new (commandPersonalInfo);
+                    adapterPersonalInfo.Fill(dataSet, "PersonalInfo");
+                }
+
+
+                //Query for group of patient
+                string queryGroupInfo = @"
+            SELECT 
+                PG.group_name
+            FROM 
+                PatientGroupAssignments AS PGA
+            JOIN 
+                PatientGroups AS PG ON PGA.group_id = PG.group_id
+            WHERE
+                PGA.patient_id = @patientId";
+
+                using (SqlCommand commandGroupInfo = new (queryGroupInfo, conn))
+                {
+                    commandGroupInfo.Parameters.AddWithValue("@patientId", patientId);
+                    SqlDataAdapter adapterGroupInfo = new SqlDataAdapter(commandGroupInfo);
+                    adapterGroupInfo.Fill(dataSet, "GroupInfo");
+                }
+
+
+                //Query for Appointments of patient
+                string queryAppointments = @"
+            SELECT 
+                A.appointment_datetime,
+                A.status,
+                EMP.name,
+	            EMP.employee_id
+            FROM 
+                Appointments AS A
+            JOIN 
+	            Employees AS EMP ON EMP.employee_id = A.doctor_id   
+            WHERE
+                A.patient_id = @patientId";
+
+                using (SqlCommand commandAppointments = new (queryAppointments, conn))
+                {
+                    commandAppointments.Parameters.AddWithValue("@patientId", patientId);
+                    SqlDataAdapter adapterAppointments = new SqlDataAdapter(commandAppointments);
+                    adapterAppointments.Fill(dataSet, "Appointments");
+                }
+
+
+                //Query for medical record
+                string queryMedical = @"
+            SELECT diagnosis 
+            FROM
+                MedicalRecords 
+            WHERE
+                patient_id = @patientId";
+
+                using (SqlCommand commandMedical = new(queryMedical, conn))
+                {
+                    commandMedical.Parameters.AddWithValue("@patientId", patientId);
+                    SqlDataAdapter adapterAppointments = new SqlDataAdapter(commandMedical);
+                    adapterAppointments.Fill(dataSet, "Medical_Record");
+                }
+
+                return dataSet;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error while getting patient details: " + ex.Message);
+                return null;
+            }
+        }
+
 
 
         //Get list group patients
@@ -137,7 +242,7 @@ namespace project_gr
 
 
         //Add a new patient
-        public static bool AddNewPatientAndAssignGroups(string name, DateTime age, char gender, string address, string phone, string otherDetails, List<int> groupIds)
+        public static bool AddNewPatientAndAssignGroups(string name, string citizen_id, DateTime age, char gender, string address, string phone, string otherDetails, List<int> groupIds)
         {
             try
             {
@@ -147,12 +252,13 @@ namespace project_gr
                     return false;
                 }
 
-                string insertPatientQuery = @"INSERT INTO Patients (name, age, gender, address, phone, other_details)
-                                      VALUES (@Name, @Age, @Gender, @Address, @Phone, @OtherDetails);
+                string insertPatientQuery = @"INSERT INTO Patients (name, citizen_id, age, gender, address, phone, other_details)
+                                      VALUES (@Name, @Citizen_id, @Age, @Gender, @Address, @Phone, @OtherDetails);
                                       SELECT SCOPE_IDENTITY() AS new_id;";
 
                 using SqlCommand insertPatientCommand = new(insertPatientQuery, conn);
                 insertPatientCommand.Parameters.AddWithValue("@Name", name);
+                insertPatientCommand.Parameters.AddWithValue("@Citizen_id", citizen_id);
                 insertPatientCommand.Parameters.AddWithValue("@Age", age);
                 insertPatientCommand.Parameters.AddWithValue("@Gender", gender);
                 insertPatientCommand.Parameters.AddWithValue("@Address", address);
@@ -182,11 +288,43 @@ namespace project_gr
             }
         }
 
+        //Delete a patient by ID
+        public static bool DeletePatient(int patientId)
+        {
+            try
+            {
+                if (conn == null || conn.State != ConnectionState.Open)
+                {
+                    Console.WriteLine("Connection is not open.");
+                    return false;
+                }
+
+                string deletePatientQuery = "DELETE FROM PatientGroupAssignments WHERE patient_id = @PatientId;" +
+                    "DELETE FROM Patients WHERE patient_id = @PatientId";
+
+                using SqlCommand deletePatientCommand = new SqlCommand(deletePatientQuery, conn);
+                deletePatientCommand.Parameters.AddWithValue("@PatientId", patientId);
+
+                int rowsAffected = deletePatientCommand.ExecuteNonQuery();
+
+                if (rowsAffected > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error while deleting patient: " + ex.Message);
+                return false;
+            }
+        }
+
+
     }
-
-
-
-
 }
 
 

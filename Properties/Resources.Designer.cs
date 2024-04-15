@@ -73,6 +73,16 @@ namespace project_gr.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_edit_file_36 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-edit-file-36", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_empty_glass_96 {
             get {
                 object obj = ResourceManager.GetObject("icons8-empty-glass-96", resourceCulture);

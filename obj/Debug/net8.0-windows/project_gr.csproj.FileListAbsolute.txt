@@ -36,3 +36,5 @@ C:\.net\project_gr\project_gr\bin\Debug\net8.0-windows\runtimes\win-x86\native\s
 C:\.net\project_gr\project_gr\bin\Debug\net8.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\.net\project_gr\project_gr\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\.net\project_gr\project_gr\obj\Debug\net8.0-windows\project_gr.Control.AdminPage.Form_Add_Patient.resources
+C:\.net\project_gr\project_gr\obj\Debug\net8.0-windows\project_gr.sourcelink.json
+C:\.net\project_gr\project_gr\obj\Debug\net8.0-windows\project_gr.Control.AdminPage.Form_Field.Form_Infomation_details_patients.resources

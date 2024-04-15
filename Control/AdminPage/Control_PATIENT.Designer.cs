@@ -37,6 +37,8 @@
             panel1 = new Panel();
             MessEmptyData = new Label();
             TableListPatients = new DataGridView();
+            label2 = new Label();
+            Quantity_of_Patients = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)TableListPatients).BeginInit();
             SuspendLayout();
@@ -131,10 +133,32 @@
             TableListPatients.Size = new Size(1378, 473);
             TableListPatients.TabIndex = 0;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(3, 95);
+            label2.Name = "label2";
+            label2.Size = new Size(165, 20);
+            label2.TabIndex = 3;
+            label2.Text = "TỔNG SỐ BỆNH NHÂN:";
+            // 
+            // Quantity_of_Patients
+            // 
+            Quantity_of_Patients.AutoSize = true;
+            Quantity_of_Patients.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Quantity_of_Patients.Location = new Point(174, 95);
+            Quantity_of_Patients.Name = "Quantity_of_Patients";
+            Quantity_of_Patients.Size = new Size(50, 20);
+            Quantity_of_Patients.TabIndex = 4;
+            Quantity_of_Patients.Text = "label3";
+            // 
             // Control_PATIENT
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(Quantity_of_Patients);
+            Controls.Add(label2);
             Controls.Add(panel1);
             Controls.Add(label1);
             Controls.Add(btn_add_patient);
@@ -153,5 +177,7 @@
         private Panel panel1;
         private DataGridView TableListPatients;
         private Label MessEmptyData;
+        private Label label2;
+        private Label Quantity_of_Patients;
     }
 }
