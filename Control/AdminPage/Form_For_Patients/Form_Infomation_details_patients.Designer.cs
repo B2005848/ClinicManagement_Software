@@ -30,17 +30,23 @@
         {
             label1 = new Label();
             panel1 = new Panel();
+            label6 = new Label();
+            panel6 = new Panel();
             label12 = new Label();
             panel5 = new Panel();
+            Message_Empty_Data_Appoint = new Label();
             dataAppointment = new DataGridView();
             label9 = new Label();
             panel4 = new Panel();
+            Message_Empty_MR = new Label();
             dataGridView3 = new DataGridView();
             label8 = new Label();
             panel3 = new Panel();
             dataGroup = new DataGridView();
             label10 = new Label();
             panel2 = new Panel();
+            Text_more = new Label();
+            label11 = new Label();
             Text_phone = new Label();
             Text_address = new Label();
             Text_citizen = new Label();
@@ -80,6 +86,8 @@
             panel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel1.AutoScroll = true;
             panel1.BackColor = SystemColors.Control;
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(panel6);
             panel1.Controls.Add(label12);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(label9);
@@ -92,6 +100,24 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1227, 720);
             panel1.TabIndex = 1;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(684, 374);
+            label6.Margin = new Padding(3, 20, 3, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(159, 25);
+            label6.TabIndex = 40;
+            label6.Text = "Lịch sử giao dịch";
+            // 
+            // panel6
+            // 
+            panel6.Location = new Point(662, 390);
+            panel6.Name = "panel6";
+            panel6.Size = new Size(548, 291);
+            panel6.TabIndex = 46;
             // 
             // label12
             // 
@@ -108,11 +134,23 @@
             // 
             panel5.AutoScroll = true;
             panel5.BorderStyle = BorderStyle.FixedSingle;
+            panel5.Controls.Add(Message_Empty_Data_Appoint);
             panel5.Controls.Add(dataAppointment);
             panel5.Location = new Point(25, 390);
             panel5.Name = "panel5";
             panel5.Size = new Size(618, 291);
             panel5.TabIndex = 45;
+            // 
+            // Message_Empty_Data_Appoint
+            // 
+            Message_Empty_Data_Appoint.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Message_Empty_Data_Appoint.Image = Properties.Resources.icons8_empty_glass_96;
+            Message_Empty_Data_Appoint.Location = new Point(181, 69);
+            Message_Empty_Data_Appoint.Name = "Message_Empty_Data_Appoint";
+            Message_Empty_Data_Appoint.Size = new Size(203, 170);
+            Message_Empty_Data_Appoint.TabIndex = 41;
+            Message_Empty_Data_Appoint.Text = "Không có dữ liệu";
+            Message_Empty_Data_Appoint.TextAlign = ContentAlignment.BottomCenter;
             // 
             // dataAppointment
             // 
@@ -137,12 +175,23 @@
             // panel4
             // 
             panel4.BorderStyle = BorderStyle.FixedSingle;
+            panel4.Controls.Add(Message_Empty_MR);
             panel4.Controls.Add(dataGridView3);
             panel4.Location = new Point(986, 42);
             panel4.Margin = new Padding(10);
             panel4.Name = "panel4";
             panel4.Size = new Size(231, 290);
             panel4.TabIndex = 44;
+            // 
+            // Message_Empty_MR
+            // 
+            Message_Empty_MR.AutoSize = true;
+            Message_Empty_MR.Location = new Point(64, 106);
+            Message_Empty_MR.Name = "Message_Empty_MR";
+            Message_Empty_MR.Size = new Size(112, 34);
+            Message_Empty_MR.TabIndex = 42;
+            Message_Empty_MR.Text = "\"Chưa có kết quả \r\nchuẩn đoán\"";
+            Message_Empty_MR.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // dataGridView3
             // 
@@ -195,6 +244,8 @@
             // panel2
             // 
             panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(Text_more);
+            panel2.Controls.Add(label11);
             panel2.Controls.Add(Text_phone);
             panel2.Controls.Add(Text_address);
             panel2.Controls.Add(Text_citizen);
@@ -212,6 +263,26 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(618, 290);
             panel2.TabIndex = 36;
+            // 
+            // Text_more
+            // 
+            Text_more.AutoSize = true;
+            Text_more.Location = new Point(165, 185);
+            Text_more.Name = "Text_more";
+            Text_more.Size = new Size(193, 17);
+            Text_more.TabIndex = 43;
+            Text_more.Text = "An Khánh - Ninh Kiều - Cần Thơ";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.Location = new Point(29, 181);
+            label11.Margin = new Padding(3, 10, 3, 0);
+            label11.Name = "label11";
+            label11.Size = new Size(128, 21);
+            label11.TabIndex = 42;
+            label11.Text = "Thông tin khác:";
             // 
             // Text_phone
             // 
@@ -326,7 +397,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(29, 150);
+            label7.Location = new Point(29, 149);
             label7.Margin = new Padding(3, 10, 3, 0);
             label7.Name = "label7";
             label7.Size = new Size(67, 21);
@@ -336,6 +407,7 @@
             // button1
             // 
             button1.BackColor = Color.LightGray;
+            button1.Cursor = Cursors.Hand;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Image = Properties.Resources.icons8_edit_file_36;
             button1.Location = new Point(12, 9);
@@ -343,6 +415,7 @@
             button1.Size = new Size(38, 34);
             button1.TabIndex = 2;
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // Form_Infomation_details_patients
             // 
@@ -362,6 +435,7 @@
             panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataAppointment).EndInit();
             panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
             panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGroup).EndInit();
@@ -399,5 +473,11 @@
         private Label Text_citizen;
         private Label Text_gender;
         private Label Text_phone;
+        private Label Message_Empty_Data_Appoint;
+        private Label Message_Empty_MR;
+        private Label label6;
+        private Panel panel6;
+        private Label label11;
+        private Label Text_more;
     }
 }

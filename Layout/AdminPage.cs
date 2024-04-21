@@ -18,6 +18,15 @@ namespace project_gr
         public AdminPage()
         {
             InitializeComponent();
+            LoadUserControl(new Control_HOMEPAGE());
+            this.FormClosing += AdminPage_FormClosing;
+
+        }
+
+        private void AdminPage_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DatabaseManager.CloseConnection();
+            Console.WriteLine("Connection closed.");
         }
 
         //method show children page
@@ -66,10 +75,10 @@ namespace project_gr
         private void calendar_menu_opt_Click(object sender, EventArgs e)
         {
             LoadUserControl(new Control_SCHEDULE());
-            focusMenuOpt(calendar_menu_opt);    
+            focusMenuOpt(calendar_menu_opt);
         }
+      
 
-     
 
         //event load control income and expenses
         private void cash_menu_opt_Click(object sender, EventArgs e)
@@ -119,5 +128,6 @@ namespace project_gr
             test_menu_opt.ForeColor = Color.FromArgb(0x3D, 0xA9, 0xFC);
 
         }
+
     }
 }

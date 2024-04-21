@@ -364,7 +364,7 @@ namespace project_gr.Control.AdminPage
             label1.FlatStyle = FlatStyle.System;
             label1.Font = new Font("Segoe UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.Highlight;
-            label1.Location = new Point(12, 9);
+            label1.Location = new Point(263, 9);
             label1.Name = "label1";
             label1.Size = new Size(167, 37);
             label1.TabIndex = 0;

@@ -108,24 +108,24 @@
             // text_passwd
             // 
             text_passwd.BorderStyle = BorderStyle.FixedSingle;
-            text_passwd.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            text_passwd.Font = new Font("Tahoma", 18F);
             text_passwd.ImeMode = ImeMode.NoControl;
             text_passwd.Location = new Point(71, 107);
             text_passwd.Name = "text_passwd";
             text_passwd.PasswordChar = '*';
-            text_passwd.PlaceholderText = "Password";
-            text_passwd.Size = new Size(434, 35);
+            text_passwd.PlaceholderText = "   Password";
+            text_passwd.Size = new Size(434, 36);
             text_passwd.TabIndex = 1;
             // 
             // text_username
             // 
             text_username.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             text_username.BorderStyle = BorderStyle.FixedSingle;
-            text_username.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            text_username.Font = new Font("Tahoma", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
             text_username.Location = new Point(71, 43);
             text_username.Name = "text_username";
-            text_username.PlaceholderText = "Username";
-            text_username.Size = new Size(434, 35);
+            text_username.PlaceholderText = "   Username";
+            text_username.Size = new Size(434, 36);
             text_username.TabIndex = 0;
             // 
             // btn_login
@@ -133,12 +133,13 @@
             btn_login.BackColor = SystemColors.Highlight;
             btn_login.Font = new Font("Consolas", 26.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_login.ForeColor = SystemColors.ButtonFace;
-            btn_login.Location = new Point(72, 201);
+            btn_login.Location = new Point(111, 201);
             btn_login.Name = "btn_login";
             btn_login.Size = new Size(337, 51);
             btn_login.TabIndex = 2;
             btn_login.Text = "LOGIN";
             btn_login.UseVisualStyleBackColor = false;
+            btn_login.Click += btn_login_Click;
             // 
             // Linkhelp
             // 
@@ -164,6 +165,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
+            AcceptButton = btn_login;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(584, 541);
             Controls.Add(panel1);

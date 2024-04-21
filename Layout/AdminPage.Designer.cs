@@ -42,7 +42,6 @@ namespace project_gr
             report_menu_opt = new FontAwesome.Sharp.IconMenuItem();
             setting_menu_opt = new FontAwesome.Sharp.IconMenuItem();
             panelMain = new Panel();
-            lỊCHHẸNToolStripMenuItem = new ToolStripMenuItem();
             menuAdminPage.SuspendLayout();
             SuspendLayout();
             // 
@@ -190,12 +189,6 @@ namespace project_gr
             panelMain.Size = new Size(1384, 711);
             panelMain.TabIndex = 1;
             // 
-            // lỊCHHẸNToolStripMenuItem
-            // 
-            lỊCHHẸNToolStripMenuItem.Name = "lỊCHHẸNToolStripMenuItem";
-            lỊCHHẸNToolStripMenuItem.Size = new Size(32, 19);
-            lỊCHHẸNToolStripMenuItem.Text = "LỊCH HẸN";
-            // 
             // AdminPage
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -226,6 +219,5 @@ namespace project_gr
         private FontAwesome.Sharp.IconMenuItem setting_menu_opt;
         private ToolStripMenuItem unitPre_exam_menu;
         private ToolStripMenuItem CLS_exam_menu;
-        private ToolStripMenuItem lỊCHHẸNToolStripMenuItem;
     }
 }

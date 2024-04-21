@@ -1,8 +1,9 @@
--- Tạo bảng DrugTypes 
+-- Tạo bảng DrugTypes
 CREATE TABLE DrugTypes (
     drug_type_id NVARCHAR(100) PRIMARY KEY,
     name NVARCHAR(100)
 );
+
 -- Thêm một số loại thuốc phổ biến vào bảng DrugTypes
 INSERT INTO DrugTypes (drug_type_id, name)
 VALUES
@@ -14,16 +15,16 @@ VALUES
     ('TOOTHACHE', N'Tê răng'),
     ('OTHER', N'Khác');
 
--- Tạo bảng Patients
 CREATE TABLE Patients (
     patient_id INT IDENTITY PRIMARY KEY,
     name NVARCHAR(100),
     age DATE,
     gender CHAR(1),
     address NVARCHAR(255),
-    phone VARCHAR(11),
-    other_details NVARCHAR(255)
+    other_details NVARCHAR(255),
+citizen_id NVARCHAR(20) UNIQUE NOT NULL;
 );
+
 
 -- Tạo bảng Roles
 CREATE TABLE Roles (
@@ -42,6 +43,8 @@ VALUES
 -- Tạo bảng Employees
 CREATE TABLE Employees (
     employee_id INT IDENTITY PRIMARY KEY,
+	username NVARCHAR(50),
+    password NVARCHAR(50);
     name NVARCHAR(100),
     role_id INT,
     age DATE,
@@ -66,6 +69,7 @@ CREATE TABLE Appointments (
 CREATE TABLE MedicalRecords (
     record_id INT IDENTITY PRIMARY KEY,
     patient_id INT,
+ record_date DATE,
     doctor_id INT,
     diagnosis NVARCHAR(255),
     treatment NVARCHAR(255),

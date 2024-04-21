@@ -31,10 +31,19 @@
     <Compile Update="Control\AdminPage\Control_SETTING.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Control\AdminPage\Form_Field\Form_Add_Patient.cs">
+    <Compile Update="Control\AdminPage\Form_For_Patients\Form_Add_Patient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Control\AdminPage\Form_Field\Form_Infomation_details_patients.cs">
+    <Compile Update="Control\AdminPage\Form_For_Patients\Form_Infomation_details_patients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Control\AdminPage\Form_For_Patients\Form_Modify_Info_Patient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Control\AdminPage\Form_For_Schedule\Form_New_Patient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Control\AdminPage\Form_For_Schedule\Form_Old_Patient.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Layout\AdminPage.cs">

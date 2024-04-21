@@ -18,10 +18,7 @@ namespace project_gr.Control.AdminPage
             InitializeComponent();
             FormLoadPatient();
             TableListPatients.CellContentClick += TableListPatients_CellClick;
-          
-
-        
-
+  
     }
 
 
@@ -128,6 +125,7 @@ namespace project_gr.Control.AdminPage
                     AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells,
                 };
 
+             
 
                 // Insert col in DataGridView
                 TableListPatients.Columns.Add(profileImageCol);

@@ -38,3 +38,6 @@ C:\.net\project_gr\project_gr\bin\Debug\net8.0-windows\runtimes\win\lib\netcorea
 C:\.net\project_gr\project_gr\obj\Debug\net8.0-windows\project_gr.Control.AdminPage.Form_Add_Patient.resources
 C:\.net\project_gr\project_gr\obj\Debug\net8.0-windows\project_gr.sourcelink.json
 C:\.net\project_gr\project_gr\obj\Debug\net8.0-windows\project_gr.Control.AdminPage.Form_Field.Form_Infomation_details_patients.resources
+C:\.net\project_gr\project_gr\obj\Debug\net8.0-windows\project_gr.Control.AdminPage.Form_Field.Form_Modify_Info_Patient.resources
+C:\.net\project_gr\project_gr\obj\Debug\net8.0-windows\project_gr.Control.AdminPage.Form_For_Schedule.Form_New_Patient.resources
+C:\.net\project_gr\project_gr\obj\Debug\net8.0-windows\project_gr.Control.AdminPage.Form_For_Schedule.Form_Old_Patient.resources
